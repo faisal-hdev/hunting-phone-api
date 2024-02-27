@@ -13,18 +13,29 @@ const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
   phoneContainer.textContent = "";
 
-  console.log(phones.length);
+  // console.log(phones.length);
+  // display show all button if there are more then 12 phones
+  const showAllContainer = document.getElementById("show-all-container");
+
+  if (phones.length > 12) {
+    showAllContainer.classList.remove("hidden");
+  } else {
+    showAllContainer.classList.add("hidden");
+  }
+
+  // display only first 12 phones
+  phones = phones.slice(0, 12);
 
   phones.forEach((phone) => {
     // 2. create a div
     const phoneCard = document.createElement("div");
-    phoneCard.classList = `card bg-base-100 shadow-xl p-2 border`;
+    phoneCard.classList = `card bg-base-100 shadow-xl p-6 border`;
     // 3. set innerHTML
     phoneCard.innerHTML = `
-          <figure class="px-10 pt-10">
-            <img src="${phone.image}" alt="Shoes" class="rounded-xl" />
+          <figure class="p-10 bg-blue-50 rounded-lg">
+            <img src="${phone.image}" alt="Shoes" />
           </figure>
-          <div class="card-body items-center text-center">
+        <div class="card-body items-center text-center">
             <h2 class="card-title">${phone.phone_name}</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions">
