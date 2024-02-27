@@ -1,20 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="lights">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- daisy ui and tailwind cdn link -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
-    rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Hunting phone API</title>
   </head>
   <body>
-    <header>
-        <h2 class="text-4xl">Hunting phone</h2>
+    <header class="container mx-auto max-sm:my-8 md:my-14">
+      <h2 class="text-xl md:text-4xl text-center">Search your phone</h2>
     </header>
-    <main></main>
-    <foot></footer>
+    <main class="container mx-auto max-sm:px-4">
+      <!-- search result -->
+      <section class="text-center max-sm:my-8 md:my-14 flex justify-center">
+        <div class="flex max-sm:flex-col max-sm:gap-3 md:bg-slate-100">
+          <input
+            id="search-field"
+            type="text"
+            placeholder="Search here"
+            class="input bg-gray-100 w-full max-w-xs"
+          />
+          <button onclick="handleSearch()" class="btn btn-accent uppercase">
+            Search
+          </button>
+        </div>
+      </section>
+
+      <!-- search result -->
+      <section class="max-sm:my-8 md:my-14">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-sm:gap-4 md:gap-10"
+          id="phone-container"
+        ></div>
+      </section>
+    </main>
+    <footer></footer>
 
     <!-- js file -->
     <script src="./js/hunting-api.js"></script>
