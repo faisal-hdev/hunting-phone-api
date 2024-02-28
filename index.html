@@ -19,11 +19,13 @@
     <main class="container mx-auto max-sm:px-4">
       <!-- search result -->
       <section class="text-center max-sm:my-8 md:my-14 flex justify-center">
-        <div class="flex max-sm:flex-col max-sm:gap-3 md:bg-slate-100">
+        <div
+          class="flex max-sm:flex-col max-sm:gap-3 rounded-lg md:bg-slate-100"
+        >
           <input
             id="search-field"
             type="text"
-            placeholder="Search here"
+            placeholder="Search here..."
             class="input bg-gray-100 w-full max-w-xs"
           />
           <button onclick="handleSearch()" class="btn btn-accent uppercase">
@@ -34,6 +36,10 @@
 
       <!-- search result -->
       <section class="max-sm:my-8 md:my-14">
+        <div id="spinner" class="text-center mb-10 hidden">
+          <!-- <span class="loading loading-ring loading-lg"></span> -->
+          <span class="loading loading-bars loading-lg"></span>
+        </div>
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-sm:gap-4 md:gap-10"
           id="phone-container"

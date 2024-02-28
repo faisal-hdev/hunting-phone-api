@@ -29,10 +29,10 @@ const displayPhones = (phones) => {
   phones.forEach((phone) => {
     // 2. create a div
     const phoneCard = document.createElement("div");
-    phoneCard.classList = `card bg-base-100 shadow-xl p-6 border`;
+    phoneCard.classList = `card bg-base-100 p-6 border-2`;
     // 3. set innerHTML
     phoneCard.innerHTML = `
-          <figure class="p-10 bg-blue-50 rounded-lg">
+          <figure class="p-8 bg-blue-50 rounded-lg">
             <img src="${phone.image}" alt="Shoes" />
           </figure>
         <div class="card-body items-center text-center">
@@ -45,12 +45,25 @@ const displayPhones = (phones) => {
     `;
     // 4. append child
     phoneContainer.appendChild(phoneCard);
+
+    // hide loading spinner
+    toggleLoadingSpinner(false);
   });
 };
 
 const handleSearch = () => {
+  toggleLoadingSpinner(true);
   const inputEl = document.getElementById("search-field").value;
   loadPhones(inputEl);
+};
+
+const toggleLoadingSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("spinner");
+  if (isLoading) {
+    loadingSpinner.classList.remove("hidden");
+  } else {
+    loadingSpinner.classList.add("hidden");
+  }
 };
 
 // loadPhones();
